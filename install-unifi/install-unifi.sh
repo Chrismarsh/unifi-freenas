@@ -4,7 +4,7 @@
 # Installs the Uni-Fi controller software on a FreeBSD machine (presumably running pfSense).
 
 # The latest version of UniFi:
-UNIFI_SOFTWARE_URL="https://dl.ubnt.com/unifi/4.7.6/UniFi.unix.zip"
+UNIFI_SOFTWARE_URL="https://dl.ubnt.com/unifi/4.8.12/UniFi.unix.zip"
 
 # The rc script associated with this branch or fork:
 RC_SCRIPT_URL="https://raw.githubusercontent.com/gozoinks/unifi-pfsense/master/rc.d/unifi.sh"
@@ -117,6 +117,11 @@ if [ ! -z "${BACKUPFILE}" ] && [ -f ${BACKUPFILE} ]; then
   mv /usr/local/UniFi/data /usr/local/UniFi/data-orig
   /usr/bin/tar -vxzf ${BACKUPFILE}
 fi
+
+echo "Install snappy java"
+pkg install snappyjava
+mv /usr/local/UniFi/lib/snappy-java-1.0.5.jar snappy-java-1.0.5.jar.bak
+ln -s /usr/local/share/java/classes/snappy-java.jar  /usr/local/UniFi/lib/snappy-java-1.0.5.jar
 
 # Start it up:
 echo -n "Starting the unifi service..."
