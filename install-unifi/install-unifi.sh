@@ -7,7 +7,7 @@
 UNIFI_SOFTWARE_URL="https://dl.ubnt.com/unifi/4.8.12/UniFi.unix.zip"
 
 # The rc script associated with this branch or fork:
-RC_SCRIPT_URL="https://raw.githubusercontent.com/gozoinks/unifi-pfsense/master/rc.d/unifi.sh"
+RC_SCRIPT_URL="https://raw.githubusercontent.com/Chrismarsh/unifi-freenas/master/rc.d/unifi.sh"
 
 # If pkg-ng is not yet installed, bootstrap it:
 if ! /usr/sbin/pkg -N 2> /dev/null; then
@@ -119,9 +119,9 @@ if [ ! -z "${BACKUPFILE}" ] && [ -f ${BACKUPFILE} ]; then
 fi
 
 echo "Install snappy java"
-pkg install snappyjava
-mv /usr/local/UniFi/lib/snappy-java-1.0.5.jar snappy-java-1.0.5.jar.bak
-ln -s /usr/local/share/java/classes/snappy-java.jar  /usr/local/UniFi/lib/snappy-java-1.0.5.jar
+env ASSUME_ALWAYS_YES=YES /usr/sbin/pkg install snappyjava
+/bin/mv /usr/local/UniFi/lib/snappy-java-1.0.5.jar snappy-java-1.0.5.jar.bak
+/bin/ln -s /usr/local/share/java/classes/snappy-java.jar  /usr/local/UniFi/lib/snappy-java-1.0.5.jar
 
 # Start it up:
 echo -n "Starting the unifi service..."
