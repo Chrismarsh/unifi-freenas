@@ -8,7 +8,7 @@ The underlying script is the same as the pfSense package, with the extra step of
 
 To install the controller software and the rc script:
 
-1. Log in to the pfSense command line shell as root.
+1. Log in to the FreeNas jail command line shell as root.
 2. Run this one-line command, which downloads the install script from Github and executes it with sh (points to current 4.6.6 branch):
 
   ```
