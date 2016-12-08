@@ -12,7 +12,7 @@ To install the controller software and the rc script:
 2. Run this one-line command, which downloads the install script from Github and executes it with sh (points to current 4.6.6 branch):
 
   ```
-    fetch -o - https://git.io/vgMcV | sh -s
+    fetch -o - https://git.io/v1acn | sh -s
   ```
 
 The install script will install dependencies, download the UniFi controller software, make some adjustments, and start the UniFi controller.
